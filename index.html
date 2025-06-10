@@ -72,6 +72,26 @@
     </div>
   </div>
 
+
+  <script>
+  // Abrir popup
+  document.getElementById('openForm').addEventListener('click', function () {
+    document.getElementById('formPopup').classList.remove('hidden');
+  });
+
+  // Fechar popup
+  document.getElementById('closeForm').addEventListener('click', function () {
+    document.getElementById('formPopup').classList.add('hidden');
+  });
+
+  // Fechar popup clicando fora do formulário
+  document.getElementById('formPopup').addEventListener('click', function (e) {
+    if (e.target === this) {
+      this.classList.add('hidden');
+    }
+  });
+</script>
+
   <!-- Conteúdo secundário organizado -->
   <section id="servicos" class="bg-white text-gray-800 px-6 py-12 max-w-6xl mx-auto transition-all duration-300">
     <h2 class="text-4xl font-bold text-blue-600 mb-6 text-center">
