@@ -6,6 +6,31 @@
   <title>AutomaX Soluções</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const openBtn = document.getElementById("openForm");
+    const closeBtn = document.getElementById("closeForm");
+    const popup = document.getElementById("formPopup");
+
+    openBtn.addEventListener("click", () => {
+      popup.classList.remove("hidden");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      popup.classList.add("hidden");
+    });
+
+    // Fecha o popup ao clicar fora do conteúdo
+    popup.addEventListener("click", (e) => {
+      if (e.target === popup) {
+        popup.classList.add("hidden");
+      }
+    });
+  });
+</script>
+
+
+
 <body class="bg-white text-gray-900 overflow-x-hidden"">
 
   <!-- Navbar -->
@@ -14,9 +39,10 @@
       <img src="Soluções.png" alt="Logo AutomaX" class="class="h-8 w-8 object-contain"" />
     </div>
   
-    <nav class="flex gap-6 items-center"> href="https://www.instagram.com/automax.solucoes/" target="_blank"
+    <nav class="flex gap-6 items-center">
+      <a href="https://www.instagram.com/automax.solucoes/" target="_blank"
    class="bg-transparent text-white px-4 py-2 rounded-full transition flex items-center gap-2">
-  <img src="logo_insta.jpg" alt="Logo Instagram" class="class="h-10 w-10 object-contain"" />
+  <img src="logo_insta.jpg" alt="Logo Instagram" class="class="h-8 w-8 object-contain"" />
   </div>
 </a>
 
