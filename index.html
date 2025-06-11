@@ -1,265 +1,144 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>AutomaX Soluções</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-white text-gray-900">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Botão WhatsApp com Formulário</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100">
 
-    <header class="flex items-center justify-between px-8 py-4 bg-white shadow-md transition-all duration-300">
-        <div class="flex items-center">
-            <img src="Soluções.png" alt="Logo AutomaX" class="h-20 object-contain mr-4" />
-        </div>
-
-        <nav class="flex gap-6 items-center">
-    <a href="https://www.instagram.com/automax.solucoes/" target="_blank"
-        class="bg-transparent text-white px-4 py-2 rounded-full transition flex items-center gap-2">
-        <img src="logo_insta.jpg" alt="Logo Instagram" class="h-10 w-10 object-contain" />
-    </a>
-    <button id="openForm"
-        class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
-        <img src="logo_whats.png" alt="Logo WhatsApp" class="h-10 w-10 rounded-full object-cover" />
-        <span class="text-base">Fale com a AutomaX</span>
+    <!-- Botão flutuante do WhatsApp --> 
+    <button
+      id="openForm"
+      class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg z-50"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z">
+        </path>
+      </svg>
     </button>
-</nav>
-    </header>
+	<script>
+  // Abrir popup
+  document.getElementById('openForm').addEventListener('click', function () {
+    document.getElementById('formPopup').classList.remove('hidden');
+  });
 
-    <main class="pt-8 pb-12 text-center max-w-6xl mx-auto px-6 transition-all duration-300">
-        <h1 class="text-4xl text-blue-600 font-bold mb-4">Automação Digital para seu Negócio</h1>
-        <p class="text-gray-600 font-bold text-lg">Soluções práticas com tecnologia para facilitar seu atendimento.</p>
-    </main>
+  // Fechar popup
+  document.getElementById('closeForm').addEventListener('click', function () {
+    document.getElementById('formPopup').classList.add('hidden');
+  });
 
-    <div id="formPopup" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center hidden z-50">
-        <div class="bg-white p-6 rounded-xl shadow-lg w-full max-w-md relative">
-            <button id="closeForm" class="absolute top-2 right-3 text-gray-500 hover:text-red-600 text-xl">&times;</button>
-            <h2 class="text-xl font-semibold mb-4 text-blue-600">Fale com a AutomaX</h2>
+  // Fechar popup clicando fora do formulário
+  document.getElementById('formPopup').addEventListener('click', function (e) {
+    if (e.target === this) {
+      this.classList.add('hidden');
+    }
+  });
+</script>
 
-            <form id="whatsappForm" class="space-y-4">
-                <div>
-                    <label for="ramo" class="block text-sm font-medium text-gray-700 mb-1">Seu Ramo</label>
-                    <input id="ramo" type="text" name="ramo" required
-                            class="w-full mt-1 p-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" />
-                </div>
-                <div>
-                    <label for="problema" class="block text-sm font-medium text-gray-700 mb-1">Maior Problema</label>
-                    <textarea id="problema" name="problema" required rows="4"
-                                class="w-full mt-1 p-2 border border-gray-300 rounded-md placeholder-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"></textarea>
-                </div>
-                <div>
-                    <label for="telefone" class="block text-sm font-medium text-gray-700 mb-1">Telefone (WhatsApp)</label>
-                    <input id="telefone" type="tel" name="telefone" required placeholder="(XX) XXXXX-XXXX"
-                            class="w-full mt-1 p-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" />
-                </div>
+    <!-- Popup com formulário -->
+    <div
+      id="formPopup"
+      class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+    >
+      <div class="bg-white p-6 rounded-lg shadow-lg w-96 relative">
+        <button
+          id="closeForm"
+          class="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+        >
+          &times;
+        </button>
+        <h2 class="text-xl font-bold mb-4 text-center">Fale conosco via WhatsApp</h2>
+        <form id="whatsappForm" class="space-y-4">
+          <div>
+            <label for="ramo" class="block text-sm font-medium text-gray-700">Ramo do seu negócio</label>
+            <input type="text" id="ramo" name="ramo" required
+              class="mt-1 block w-full border border-gray-300 rounded-md p-2" />
+          </div>
+          <div>
+            <label for="problema" class="block text-sm font-medium text-gray-700">Qual seu maior problema hoje?</label>
+            <input type="text" id="problema" name="problema" required
+              class="mt-1 block w-full border border-gray-300 rounded-md p-2" />
+          </div>
+          <div>
+            <label for="telefone" class="block text-sm font-medium text-gray-700">Seu WhatsApp com DDD</label>
+            <input type="tel" id="telefone" name="telefone" required
+              class="mt-1 block w-full border border-gray-300 rounded-md p-2" />
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600"
+          >
+            Enviar para o WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
 
-                <button type="submit"
-                        class="bg-blue-600 hover:bg-blue-700 text-white w-full py-2 rounded-md font-medium transition">
-                    Enviar
-                </button>
-            </form>
-        </div>
-    </div>
+    <!-- Scripts -->
+    <script>
+      // Popup formulário WhatsApp
+      const openFormBtn = document.getElementById('openForm');
+      const closeFormBtn = document.getElementById('closeForm');
+      const formPopup = document.getElementById('formPopup');
+      const whatsappForm = document.getElementById('whatsappForm');
 
-    <section id="servicos" class="bg-white text-gray-800 px-6 py-12 max-w-6xl mx-auto transition-all duration-300">
-        <h2 class="text-4xl font-bold text-blue-600 mb-6 text-center">
-            🚀 Soluções de Automação para WhatsApp e Instagram
-        </h2>
-        <p class="text-xl text-center text-gray-700 mb-10">
-            Leve seu negócio para outro nível com um atendimento moderno, ágil e eficiente.
-        </p>
+      openFormBtn.addEventListener('click', () => {
+        formPopup.classList.remove('hidden');
+      });
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <div class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-md transition">
-                <h3 class="text-xl font-semibold text-blue-700 mb-2">✅ Atraia mais clientes</h3>
-                <p>Capte contatos automaticamente no WhatsApp e Instagram, convertendo visitantes e seguidores em clientes reais.</p>
-            </div>
-            <div class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-md transition">
-                <h3 class="text-xl font-semibold text-blue-700 mb-2">✅ Venda mais todos os dias</h3>
-                <p>Seu negócio funcionando 24h, fechando vendas até fora do horário comercial.</p>
-            </div>
-            <div class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-md transition">
-                <h3 class="text-xl font-semibold text-blue-700 mb-2">✅ Atendimento automático e profissional</h3>
-                <p>Menus interativos, respostas rápidas e processos otimizados.</p>
-            </div>
-            <div class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-md transition">
-                <h3 class="text-xl font-semibold text-blue-700 mb-2">✅ Ganhe tempo e produtividade</h3>
-                <p>Automatize tarefas repetitivas e foque em crescer seu negócio.</p>
-            </div>
-        </div>
+      closeFormBtn.addEventListener('click', () => {
+        formPopup.classList.add('hidden');
+      });
 
-        <div class="bg-blue-50 p-8 rounded-xl shadow text-center">
-            <h3 class="text-2xl font-bold text-blue-700 mb-6">💡 O que é Automação?</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left text-gray-800">
-                <p class="text-lg mb-4">
-                    É a tecnologia que permite oferecer um atendimento inteligente, rápido e 100% automático no WhatsApp e Instagram (Direct).
-                </p>
-                <ul class="list-disc list-inside space-y-2 text-gray-700">
-                    <li>✔️ Atende clientes automaticamente</li>
-                    <li>✔️ Responde dúvidas e envia orçamentos</li>
-                    <li>✔️ Realiza agendamentos e reservas</li>
-                    <li>✔️ Mostra produtos, serviços e conduz até a compra</li>
-                </ul>
-            </div>
-        </div>
+      whatsappForm.addEventListener('submit', e => {
+        e.preventDefault();
 
-        <div id="contato" class="bg-blue-50 p-8 rounded-xl shadow text-center mt-12">
-            <h3 class="text-2xl font-bold text-blue-700 mb-6">🏢 Funciona para qualquer negócio:</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left text-gray-800">
-                <ul class="space-y-2 list-disc list-inside">
-                    <li>💉 Clínicas</li>
-                    <li>💇‍♀️ Salões de beleza</li>
-                    <li>💈 Barbearias</li>
-                    <li>🍽️ Restaurantes</li>
-                    <li>🐾 Pet shops</li>
-                </ul>
-                <ul class="space-y-2 list-disc list-inside">
-                    <li>🏋️ Academias</li>
-                    <li>💊 Farmácias</li>
-                    <li>👓 Óticas</li>
-                    <li>🏫 Escolas e cursos</li>
-                    <li>🔧 Oficinas</li>
-                </ul>
-                <ul class="space-y-2 list-disc list-inside">
-                    <li>🧺 Lavanderias</li>
-                    <li>🌸 Floriculturas</li>
-                    <li>🏘️ Imobiliárias</li>
-                    <li>🛍️ Lojas e e-commerces</li>
-                </ul>
-                <ul class="space-y-2 list-disc list-inside">
-                    <li>🌾 Agropecuárias</li>
-                    <li>🎉 Espaços de eventos</li>
-                    <li>🍹 Bartenders e festas</li>
-                    <li>🚚 Transportadoras</li>
-                </ul>
-            </div>
-        </div>
+        const ramo = encodeURIComponent(document.getElementById('ramo').value.trim());
+        const problema = encodeURIComponent(document.getElementById('problema').value.trim());
+        let telefone = document.getElementById('telefone').value.trim();
 
-        <div class="bg-blue-50 p-8 rounded-xl shadow text-center mt-12">
-            <h3 class="text-2xl font-bold text-blue-700 mb-6">⚙️ O que entregamos:</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left text-gray-800">
-                <ul class="space-y-2 list-disc list-inside">
-                    <li>✅ Atendimento 24h via WhatsApp e Instagram</li>
-                    <li>✅ Menus interativos e respostas automáticas</li>
-                    <li>✅ Agendamento de serviços e reservas</li>
-                    <li>✅ Envio automático de contratos e localizações</li>
-                    <li>✅ Pesquisa de satisfação, NPS e feedback</li>
-                </ul>
-                <ul class="space-y-2 list-disc list-inside">
-                    <li>✅ Geração de cupons e promoções</li>
-                    <li>✅ Catálogo digital e orçamentos instantâneos</li>
-                    <li>✅ Integração com Google Agenda, CRM e mais</li>
-                    <li>✅ Mensagens de pós-venda e fidelização</li>
-                    <li>✅ Leads e listas de transmissão qualificadas</li>
-                </ul>
-            </div>
-        </div>
+        telefone = telefone.replace(/\D/g, '');
 
-        <div class="bg-blue-50 p-8 rounded-xl shadow text-center mt-12">
-            <h3 class="text-2xl font-bold text-blue-700 mb-6">🎯 Benefícios para seu Negócio</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left text-gray-800">
-                <ul class="space-y-2 list-disc list-inside">
-                    <li>💰 Mais vendas todos os dias</li>
-                    <li>🕐 Atendimento 24h, até em feriados</li>
-                    <li>😎 Atendimento rápido e profissional</li>
-                    <li>📥 Geração de leads automática</li>
-                    <li>📈 Mais visibilidade e alcance</li>
-                </ul>
-                <ul class="space-y-2 list-disc list-inside">
-                    <li>⏱️ Economia de tempo</li>
-                    <li>📊 Controle e gestão via painel</li>
-                    <li>📱 Atendimento no app que você já usa</li>
-                    <li>🤝 Fidelização e pós-venda automática</li>
-                    <li>🔗 Integração com ferramentas</li>
-                </ul>
-            </div>
-        </div>
+        if (!telefone) {
+          alert('Por favor, informe um número de telefone válido.');
+          return;
+        }
 
-    </section>
+        const mensagem = `Olá, sou do ramo: ${ramo}. Meu maior problema é: ${problema}. Poderiam me ajudar?`;
+        const link = `https://wa.me/55${telefone}?text=${mensagem}`;
 
-    <footer class="bg-white p-6 text-center text-gray-600">
-<h3 class="text-2xl font-bold text-blue-700 mb-6">Fale com a AutomaX e peça uma demonstração grátis!</h3>
-        © 2025 AutomaX Soluções. Todos os direitos reservados.
-	</footer>
+        window.open(link, '_blank');
 
-    <script>
-        // Toggle menu lateral (se você tiver um menu lateral, certifique-se de que os IDs 'menuToggle' e 'sidebarMenu' existam no HTML)
-        const menuToggle = document.getElementById('menuToggle');
-        const sidebarMenu = document.getElementById('sidebarMenu');
-        const mainContent = document.querySelector('main');
-        const header = document.querySelector('header');
-        const section = document.querySelector('section');
+        formPopup.classList.add('hidden');
+        whatsappForm.reset();
+      });
 
-        if (menuToggle && sidebarMenu) { // Verifica se os elementos existem antes de adicionar o listener
-            menuToggle.addEventListener('click', () => {
-                sidebarMenu.classList.toggle('-translate-x-full');
-                if (!sidebarMenu.classList.contains('-translate-x-full')) {
-                   
-                } else {
-                    mainContent.classList.remove('ml-48');
-                    header.classList.remove('ml-48');
-                    section.classList.remove('ml-48');
-                }
-            });
-        }
+      // Menu lateral (comentado pois não há elementos no HTML)
+      /*
+      const menuToggle = document.getElementById('menuToggle');
+      const sidebarMenu = document.getElementById('sidebarMenu');
+      const mainContent = document.querySelector('main');
+      const header = document.querySelector('header');
+      const section = document.querySelector('section');
 
+      menuToggle.addEventListener('click', () => {
+        sidebarMenu.classList.toggle('-translate-x-full');
+        if (!sidebarMenu.classList.contains('-translate-x-full')) {
+          mainContent.classList.add('ml-48');
+          header.classList.add('ml-48');
+          section.classList.add('ml-48');
+        } else {
+          mainContent.classList.remove('ml-48');
+          header.classList.remove('ml-48');
+          section.classList.remove('ml-48');
+        }
+      });
+      */
+    </script>
 
-        // Popup formulário WhatsApp
-        const openFormBtn = document.getElementById('openForm');
-        const closeFormBtn = document.getElementById('closeForm');
-        const formPopup = document.getElementById('formPopup');
-        const whatsappForm = document.getElementById('whatsappForm');
-
-        // Abrir popup
-        openFormBtn.addEventListener('click', () => {
-            formPopup.classList.remove('hidden');
-        });
-
-        // Fechar popup
-        closeFormBtn.addEventListener('click', () => {
-            formPopup.classList.add('hidden');
-        });
-
-        // Fechar popup clicando fora do formulário
-        formPopup.addEventListener('click', (e) => {
-            if (e.target === formPopup) { // Mudei de this para formPopup para maior clareza
-                formPopup.classList.add('hidden');
-            }
-        });
-
-
-        // Envio do formulário abre WhatsApp com mensagem formatada
-        whatsappForm.addEventListener('submit', e => {
-            e.preventDefault();
-
-            const ramo = encodeURIComponent(document.getElementById('ramo').value.trim());
-            const problema = encodeURIComponent(document.getElementById('problema').value.trim());
-            let telefone = document.getElementById('telefone').value.trim();
-
-            // Remove caracteres não numéricos do telefone
-            telefone = telefone.replace(/\D/g, '');
-
-            // Adiciona o código do país (55 para Brasil) se o número não começar com ele
-            if (telefone.length > 0 && !telefone.startsWith('55')) {
-                telefone = '55' + telefone;
-            }
-
-            if (!telefone) {
-                alert('Por favor, informe um número de telefone válido.');
-                return;
-            }
-
-            const mensagem = `Olá, sou do ramo: ${ramo}. Meu maior problema é: ${problema}. Poderiam me ajudar?`;
-
-            const link = `https://wa.me/${telefone}?text=${mensagem}`;
-
-            window.open(link, '_blank');
-
-            // Fecha o popup e reseta o formulário
-            formPopup.classList.add('hidden');
-            whatsappForm.reset();
-        });
-    </script>
-
-</body>
+  </body>
 </html>
