@@ -3,85 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AutomaX Soluções</title>
+  <title>AutomaX Soluções - Automação Digital para seu Negócio</title>
+  <meta name="description" content="Automação para WhatsApp e Instagram. Atendimento 24h, mais vendas e produtividade para seu negócio." />
+  <meta name="author" content="AutomaX Soluções" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #ffffff, #f0f4f8);
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .dark body {
+      background: #121212;
+      color: #e0e0e0;
+    }
+    .dark header,
+    .dark footer {
+      background: #1e1e1e;
+      color: #bbb;
+    }
+    .dark a {
+      color: #90cdf4; /* azul claro */
+    }
+    /* Vídeo responsivo sem Tailwind plugin */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+      border-radius: 1rem;
+    }
+  </style>
 </head>
-<body class="bg-white text-gray-900">
-
-  </button>
+<body class="text-gray-900 bg-white transition-colors duration-300">
 
   <!-- Navbar -->
-  <header class="flex items-center justify-between px-8 py-4 bg-white shadow-md transition-all duration-300">
+  <header class="flex items-center justify-between px-8 py-4 bg-white shadow-md sticky top-0 z-50 transition-colors duration-300">
     <div class="flex items-center">
-      <img src="Soluções.png" alt="Logo AutomaX" class="h-20 object-contain mr-4" />
+      <img src="Soluções.png" alt="Logo AutomaX Soluções de Automação" class="h-20 object-contain mr-4" />
     </div>
-  
     <nav class="flex gap-6 items-center">
-      <a href="#servicos" class="text-gray-700 hover:text-pink-500 transition">Serviços</a>
-      <a href="#contato" class="text-gray-700 hover:text-pink-500 transition">Contato</a>
-     <a href="https://www.instagram.com/automax.solucoes/" target="_blank"
-   class="bg-transparent text-white px-4 py-2 rounded-full transition flex items-center gap-2">
-  <img src="C:\Users\parag\OneDrive\Desktop\AutomaX/logo_insta.jpg" alt="Logo Instagram" class="h-10 w-10  object-contain" />
-</a>
-
+      <a href="#servicos" class="text-gray-700 hover:text-blue-600 transition font-medium">Serviços</a>
+      <a href="#sobre" class="text-gray-700 hover:text-blue-600 transition font-medium">Sobre</a>
+      <a href="#contato" class="text-gray-700 hover:text-blue-600 transition font-medium">Contato</a>
+      <a href="https://www.instagram.com/automax.solucoes/" target="_blank" rel="noopener noreferrer">
+        <img src="logo_insta.jpg" alt="Logo Instagram AutomaX" class="h-10 w-10 object-contain hover:scale-110 transition-transform" />
       </a>
+      <!-- Botão Modo Escuro -->
+      <button id="toggleDarkMode" aria-label="Alternar modo claro/escuro" class="ml-4 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+        <svg id="iconLight" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <title>Modo Claro</title>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.485-8.485h-1M4.515 12.515h-1m14.142 4.243l-.707-.707M6.343 6.343l-.707-.707m12.728 12.728l-.707-.707M6.343 17.657l-.707-.707M12 7a5 5 0 000 10 5 5 0 000-10z" />
+        </svg>
+        <svg id="iconDark" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="currentColor" viewBox="0 0 24 24" stroke="none">
+          <title>Modo Escuro</title>
+          <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
+        </svg>
+      </button>
     </nav>
   </header>
 
-  <!-- Conteúdo Principal -->
-  <main class="pt-8 pb-12 text-center max-w-6xl mx-auto px-6 transition-all duration-300">
-    <h1 class="text-4xl text-blue-600 font-bold mb-4">Automação Digital para seu Negócio</h1>
-    <p class="text-gray-600 font-bold text-lg">Soluções práticas com tecnologia para facilitar seu atendimento.</p>
+    <!-- Conteúdo Principal -->
+  <main class="pt-12 pb-16 text-center max-w-6xl mx-auto px-6" role="main">
+    <h1 class="text-5xl text-blue-600 font-bold mb-4" id="headline">Automação Digital para seu Negócio</h1>
+    <p class="text-gray-600 font-medium text-lg mb-8">Soluções práticas com tecnologia para facilitar seu atendimento.</p>
+    <button id="openForm" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-md font-semibold transition cursor-pointer">Solicite uma demonstração</button>
   </main>
 
-  <!-- Botão WhatsApp fixo -->
-  <button id="openForm" 
-          class="fixed bottom-6 left-6 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg flex items-center gap-2 z-50">
-    <img src="C:\Users\parag\OneDrive\Desktop\AutomaX/logo_whats.jpg" alt="Logo WhatsApp" class="h-6 w-6 rounded-full object-cover" />
-    WhatsApp
-  </button>
-
-  <!-- Formulário Popup -->
-  <div id="formPopup" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center hidden z-50">
-    <div class="bg-white p-6 rounded-xl shadow-lg w-full max-w-md relative">
-      <button id="closeForm" class="absolute top-2 right-3 text-gray-500 hover:text-red-600 text-xl">&times;</button>
-      <h2 class="text-xl font-semibold mb-4 text-blue-600">Fale com a AutomaX</h2>
-
-      <form id="whatsappForm" class="space-y-4">
-        <div>
-          <label for="ramo" class="block text-sm font-medium text-gray-700 mb-1">Seu Ramo</label>
-          <input id="ramo" type="text" name="ramo" required 
-                 class="w-full mt-1 p-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" />
-        </div>
-        <div>
-          <label for="problema" class="block text-sm font-medium text-gray-700 mb-1">Maior Problema</label>
-          <textarea id="problema" name="problema" required rows="4"
-                    class="w-full mt-1 p-2 border border-gray-300 rounded-md placeholder-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"></textarea>
-        </div>
-        <div>
-          <label for="telefone" class="block text-sm font-medium text-gray-700 mb-1">Telefone (WhatsApp)</label>
-          <input id="telefone" type="tel" name="telefone" required placeholder="(XX) XXXXX-XXXX" 
-                 class="w-full mt-1 p-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" />
-        </div>
-
-        <button type="submit" 
-                class="bg-blue-600 hover:bg-blue-700 text-white w-full py-2 rounded-md font-medium transition">
-          Enviar
-        </button>
-      </form>
-    </div>
-  </div>
-
-  <!-- Conteúdo secundário organizado -->
-  <section id="servicos" class="bg-white text-gray-800 px-6 py-12 max-w-6xl mx-auto transition-all duration-300">
-    <h2 class="text-4xl font-bold text-blue-600 mb-6 text-center">
-      🚀 Soluções de Automação para WhatsApp e Instagram
-    </h2>
-    <p class="text-xl text-center text-gray-700 mb-10">
-      Leve seu negócio para outro nível com um atendimento moderno, ágil e eficiente.
-    </p>
-
-    <!-- Benefícios Principais -->
+  <!-- Seção Serviços -->
+  <section id="servicos" class="bg-white text-gray-800 px-6 py-12 max-w-6xl mx-auto transition-colors duration-300" aria-label="Seção de serviços">
+    <h2 class="text-4xl font-bold text-blue-600 mb-6 text-center">🚀 Soluções de Automação para WhatsApp e Instagram</h2>
+    <p class="text-xl text-center text-gray-700 mb-10">Leve seu negócio para outro nível com um atendimento moderno, ágil e eficiente.</p>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
       <div class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-md transition">
         <h3 class="text-xl font-semibold text-blue-700 mb-2">✅ Atraia mais clientes</h3>
@@ -100,14 +102,10 @@
         <p>Automatize tarefas repetitivas e foque em crescer seu negócio.</p>
       </div>
     </div>
-
-    <!-- O que é automação -->
     <div class="bg-blue-50 p-8 rounded-xl shadow text-center">
       <h3 class="text-2xl font-bold text-blue-700 mb-6">💡 O que é Automação?</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left text-gray-800">
-        <p class="text-lg mb-4">
-          É a tecnologia que permite oferecer um atendimento inteligente, rápido e 100% automático no WhatsApp e Instagram (Direct).
-        </p>
+        <p class="text-lg mb-4">É a tecnologia que permite oferecer um atendimento inteligente, rápido e 100% automático no WhatsApp e Instagram (Direct).</p>
         <ul class="list-disc list-inside space-y-2 text-gray-700">
           <li>✔️ Atende clientes automaticamente</li>
           <li>✔️ Responde dúvidas e envia orçamentos</li>
@@ -116,151 +114,228 @@
         </ul>
       </div>
     </div>
-
-    <!-- Quem pode usar -->
-    <div id="contato" class="bg-blue-50 p-8 rounded-xl shadow text-center mt-12">
+    <div class="bg-blue-50 p-8 rounded-xl shadow text-center mt-12">
       <h3 class="text-2xl font-bold text-blue-700 mb-6">🏢 Funciona para qualquer negócio:</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left text-gray-800">
         <ul class="space-y-2 list-disc list-inside">
-          <li>💉 Clínicas</li>
-          <li>💇‍♀️ Salões de beleza</li>
-          <li>💈 Barbearias</li>
-          <li>🍽️ Restaurantes</li>
-          <li>🐾 Pet shops</li>
+          <li>💉 Clínicas</li><li>💇‍♀️ Salões de beleza</li><li>💈 Barbearias</li><li>🍽️ Restaurantes</li><li>🐾 Pet shops</li>
         </ul>
         <ul class="space-y-2 list-disc list-inside">
-          <li>🏋️ Academias</li>
-          <li>💊 Farmácias</li>
-          <li>👓 Óticas</li>
-          <li>🏫 Escolas e cursos</li>
-          <li>🔧 Oficinas</li>
+          <li>🏋️ Academias</li><li>💊 Farmácias</li><li>👓 Óticas</li><li>🏫 Escolas e cursos</li><li>🔧 Oficinas</li>
         </ul>
         <ul class="space-y-2 list-disc list-inside">
-          <li>🧺 Lavanderias</li>
-          <li>🌸 Floriculturas</li>
-          <li>🏘️ Imobiliárias</li>
-          <li>🛍️ Lojas e e-commerces</li>
+          <li>🧺 Lavanderias</li><li>🌸 Floriculturas</li><li>🏘️ Imobiliárias</li><li>🛍️ Lojas e e-commerces</li>
         </ul>
         <ul class="space-y-2 list-disc list-inside">
-          <li>🌾 Agropecuárias</li>
-          <li>🎉 Espaços de eventos</li>
-          <li>🍹 Bartenders e festas</li>
-          <li>🚚 Transportadoras</li>
+          <li>🌾 Agropecuárias</li><li>🎉 Espaços de eventos</li><li>🍹 Bartenders e festas</li><li>🚚 Transportadoras</li>
         </ul>
       </div>
     </div>
-
-    <!-- O que entregamos -->
     <div class="bg-blue-50 p-8 rounded-xl shadow text-center mt-12">
       <h3 class="text-2xl font-bold text-blue-700 mb-6">⚙️ O que entregamos:</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left text-gray-800">
         <ul class="space-y-2 list-disc list-inside">
-          <li>✅ Atendimento 24h via WhatsApp e Instagram</li>
-          <li>✅ Menus interativos e respostas automáticas</li>
-          <li>✅ Agendamento de serviços e reservas</li>
-          <li>✅ Envio automático de contratos e localizações</li>
-          <li>✅ Pesquisa de satisfação, NPS e feedback</li>
+          <li>✅ Atendimento 24h via WhatsApp e Instagram</li><li>✅ Menus interativos e respostas automáticas</li>
+          <li>✅ Agendamento de serviços e reservas</li><li>✅ Envio automático de contratos e localizações</li><li>✅ Pesquisa de satisfação, NPS e feedback</li>
         </ul>
         <ul class="space-y-2 list-disc list-inside">
-          <li>✅ Geração de cupons e promoções</li>
-          <li>✅ Catálogo digital e orçamentos instantâneos</li>
-          <li>✅ Integração com Google Agenda, CRM e mais</li>
-          <li>✅ Mensagens de pós-venda e fidelização</li>
-          <li>✅ Leads e listas de transmissão qualificadas</li>
+          <li>✅ Geração de cupons e promoções</li><li>✅ Catálogo digital e orçamentos instantâneos</li>
+          <li>✅ Integração com Google Agenda, CRM e mais</li><li>✅ Mensagens de pós-venda e fidelização</li><li>✅ Leads e listas de transmissão qualificadas</li>
         </ul>
       </div>
     </div>
-
-    <!-- Benefícios -->
     <div class="bg-blue-50 p-8 rounded-xl shadow text-center mt-12">
       <h3 class="text-2xl font-bold text-blue-700 mb-6">🎯 Benefícios para seu Negócio</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left text-gray-800">
         <ul class="space-y-2 list-disc list-inside">
-          <li>💰 Mais vendas todos os dias</li>
-          <li>🕐 Atendimento 24h, até em feriados</li>
-          <li>😎 Atendimento rápido e profissional</li>
-          <li>📥 Geração de leads automática</li>
-          <li>📈 Mais visibilidade e alcance</li>
+          <li>💰 Mais vendas todos os dias</li><li>🕐 Atendimento 24h, até em feriados</li><li>😎 Atendimento rápido e profissional</li>
+          <li>📥 Geração de leads automática</li><li>📈 Mais visibilidade e alcance</li>
         </ul>
         <ul class="space-y-2 list-disc list-inside">
-          <li>⏱️ Economia de tempo</li>
-          <li>📊 Controle e gestão via painel</li>
-          <li>📱 Atendimento no app que você já usa</li>
-          <li>🤝 Fidelização e pós-venda automática</li>
-          <li>🔗 Integração com ferramentas</li>
+          <li>⏱️ Economia de tempo</li><li>📊 Controle e gestão via painel</li><li>📱 Atendimento no app que você já usa</li>
+          <li>🤝 Fidelização e pós-venda automática</li><li>🔗 Integração com ferramentas</li>
         </ul>
       </div>
     </div>
-
   </section>
 
-  <footer class="bg-white p-6 text-center text-gray-600">
-    © 2025 AutomaX Soluções. Todos os direitos reservados.
+  <!-- Sobre Nós -->
+  <section id="sobre" class="max-w-6xl mx-auto px-6 py-12 bg-white rounded-xl shadow mt-16 transition-colors duration-300" aria-label="Sobre a AutomaX Soluções">
+    <h2 class="text-4xl font-bold text-blue-600 mb-6 text-center">Sobre a AutomaX Soluções</h2>
+    <p class="text-lg text-gray-700 max-w-4xl mx-auto mb-6">
+      A AutomaX Soluções é uma empresa especializada em automação digital para WhatsApp e Instagram. Nossa missão é facilitar a comunicação do seu negócio, aumentando suas vendas e a satisfação dos seus clientes por meio de tecnologia inovadora e atendimento inteligente 24 horas por dia.
+    </p>
+    <p class="text-lg text-gray-700 max-w-4xl mx-auto">
+      Fundada em 2025, Estamos prontos para transformar seu atendimento e impulsionar seus resultados. Confiança, eficiência e inovação são os pilares que sustentam nosso trabalho.
+    </p>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="max-w-6xl mx-auto px-6 py-12 bg-white rounded-xl shadow mt-16 transition-colors duration-300" aria-label="Contato AutomaX Soluções">
+    <h2 class="text-4xl font-bold text-blue-600 mb-6 text-center">Fale Conosco</h2>
+    <p class="text-center mb-8 max-w-3xl mx-auto text-gray-700">Quer tirar dúvidas, solicitar uma proposta ou saber mais? Envie sua mensagem usando o formulário abaixo ou pelos nossos canais de contato.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+
+      <form id="whatsappForm" class="space-y-6" aria-label="Formulário de contato via WhatsApp">
+        <div>
+          <label for="ramo" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Seu Ramo</label>
+          <input id="ramo" type="text" name="ramo" required placeholder="Ex: Clínica, Restaurante"
+                 class="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" />
+        </div>
+        <div>
+          <label for="problema" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Maior Problema</label>
+          <textarea id="problema" name="problema" required rows="4" placeholder="Descreva seu maior desafio"
+                    class="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"></textarea>
+        </div>
+        <div>
+          <label for="telefone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Telefone (WhatsApp)</label>
+          <input id="telefone" type="tel" name="telefone" required placeholder="(XX) XXXXX-XXXX"
+                 class="w-full p-3 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" />
+        </div>
+        <button type="submit"
+                class="bg-blue-600 hover:bg-blue-700 text-white w-full py-3 rounded-md font-medium transition cursor-pointer">
+          Enviar Mensagem
+        </button>
+        <p id="formMessage" role="alert" class="mt-2 text-center text-sm font-semibold text-green-600 hidden"></p>
+      </form>
+
+      <div class="text-gray-700 dark:text-gray-300">
+        <h3 class="text-xl font-semibold mb-4">Nossos contatos</h3>
+        <p><strong>Telefone:</strong> (47) 99130-1009</p>
+        <li><a href="https://www.instagram.com/automax.solucoes?igsh=ZHd0dmxjOHpub2Fl" target="_blank" rel="noopener noreferrer" aria-label="Instagram AutomaX" class="hover:text-blue-600">Instagram</a></li>
+          <!-- Outros links se quiser -->
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Política de Privacidade (link simples, pode ser página à parte) -->
+  <section class="max-w-6xl mx-auto px-6 py-6 text-center text-gray-600 text-sm mt-16">
+    <p>Ao usar este site, você concorda com nossa <a href="/politica-privacidade.html" class="underline hover:text-blue-600">Política de Privacidade</a>.</p>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="bg-gray-100 text-gray-700 py-6 mt-16 text-center transition-colors duration-300">
+    <p>© 2025 AutomaX Soluções. Todos os direitos reservados.</p>
   </footer>
 
+  <!-- Scripts -->
   <script>
-    // Toggle menu lateral
-    const menuToggle = document.getElementById('menuToggle');
-    const sidebarMenu = document.getElementById('sidebarMenu');
-    const mainContent = document.querySelector('main');
-    const header = document.querySelector('header');
-    const section = document.querySelector('section');
+    // ScrollReveal para animações
+    ScrollReveal().reveal('#headline', { delay: 200, origin: 'bottom', distance: '40px', duration: 1000 });
+    ScrollReveal().reveal('section', { interval: 200, distance: '20px', duration: 800, easing: 'ease-in-out', origin: 'bottom' });
 
-    menuToggle.addEventListener('click', () => {
-      sidebarMenu.classList.toggle('-translate-x-full');
-      if (!sidebarMenu.classList.contains('-translate-x-full')) {
-        mainContent.classList.add('ml-48');
-        header.classList.add('ml-48');
-        section.classList.add('ml-48');
+    // Alternar modo escuro
+    const toggleBtn = document.getElementById('toggleDarkMode');
+    const iconLight = document.getElementById('iconLight');
+    const iconDark = document.getElementById('iconDark');
+
+    function setDarkMode(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        iconLight.classList.add('hidden');
+        iconDark.classList.remove('hidden');
+        localStorage.setItem('theme', 'dark');
       } else {
-        mainContent.classList.remove('ml-48');
-        header.classList.remove('ml-48');
-        section.classList.remove('ml-48');
+        document.documentElement.classList.remove('dark');
+        iconLight.classList.remove('hidden');
+        iconDark.classList.add('hidden');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      setDarkMode(!isDark);
+    });
+
+    // Aplica a preferência salva no carregamento
+    window.addEventListener('load', () => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        setDarkMode(true);
+      } else {
+        setDarkMode(false);
       }
     });
 
-    // Popup formulário WhatsApp
+    // Formulário popup aberto pelo botão principal (Solicite demonstração)
     const openFormBtn = document.getElementById('openForm');
-    const closeFormBtn = document.getElementById('closeForm');
-    const formPopup = document.getElementById('formPopup');
-    const whatsappForm = document.getElementById('whatsappForm');
+    const formMessage = document.getElementById('formMessage');
 
+    // Se quiser popup separado, pode implementar, aqui vamos usar o formulário da seção contato
+
+    // Focar no input ramo ao clicar no botão
     openFormBtn.addEventListener('click', () => {
-      formPopup.classList.remove('hidden');
+      const ramoInput = document.getElementById('ramo');
+      ramoInput.focus();
+      ramoInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
 
-    closeFormBtn.addEventListener('click', () => {
-      formPopup.classList.add('hidden');
-    });
-
-    // Envio do formulário abre WhatsApp com mensagem formatada
-    whatsappForm.addEventListener('submit', e => {
+    // Validação e envio via WhatsApp
+    const form = document.getElementById('whatsappForm');
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
 
-      const ramo = encodeURIComponent(document.getElementById('ramo').value.trim());
-      const problema = encodeURIComponent(document.getElementById('problema').value.trim());
-      let telefone = document.getElementById('telefone').value.trim();
+      // Pega valores
+      const ramo = form.ramo.value.trim();
+      const problema = form.problema.value.trim();
+      let telefone = form.telefone.value.trim().replace(/\D/g, '');
 
-      // Remove caracteres não numéricos do telefone
-      telefone = telefone.replace(/\D/g, '');
-
-      if (!telefone) {
-        alert('Por favor, informe um número de telefone válido.');
+      // Validações simples
+      if (!ramo || !problema || !telefone) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+      }
+      if (telefone.length < 10) {
+        alert('Informe um número de telefone válido com DDD.');
+        form.telefone.focus();
         return;
       }
 
-      const mensagem = `Olá, sou do ramo: ${ramo}. Meu maior problema é: ${problema}. Poderiam me ajudar?`;
+      // Monta mensagem
+      const mensagem = encodeURIComponent(`Olá, sou do ramo: ${ramo}. Meu maior problema é: ${problema}. Poderiam me ajudar?`);
 
-      // Link para WhatsApp (Brasil, código 55) — ajustar o código do país se precisar
+      // Link WhatsApp
       const link = `https://wa.me/55${telefone}?text=${mensagem}`;
 
       window.open(link, '_blank');
 
-      // Fecha o popup
-      formPopup.classList.add('hidden');
-      whatsappForm.reset();
+      // Feedback
+      formMessage.textContent = 'Mensagem enviada! Obrigado pelo contato.';
+      formMessage.classList.remove('hidden');
+
+      // Limpa formulário
+      form.reset();
+
+      // Esconde mensagem após 5 segundos
+      setTimeout(() => {
+        formMessage.classList.add('hidden');
+      }, 5000);
     });
+
+    // Cookies banner
+    const cookieBanner = document.getElementById('cookieBanner');
+    const acceptCookiesBtn = document.getElementById('acceptCookies');
+
+    if(cookieBanner && acceptCookiesBtn) {
+      acceptCookiesBtn.addEventListener('click', () => {
+        cookieBanner.classList.add('hidden');
+        localStorage.setItem('cookiesAccepted', 'yes');
+      });
+
+      window.addEventListener('load', () => {
+        if(localStorage.getItem('cookiesAccepted') === 'yes') {
+          cookieBanner.classList.add('hidden');
+        }
+      });
+    }
   </script>
+
+  <!-- Alerta de Cookies -->
+  <div id="cookieBanner" class="fixed bottom-0 w-full bg-gray-900 text-white text-center p-4 z-50">
+    <p class="text-sm">Este site utiliza cookies para melhorar sua experiência. <button id="acceptCookies" class="underline text-blue-400 ml-2">Aceitar</button></p>
+  </div>
 
 </body>
 </html>
